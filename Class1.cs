@@ -1,33 +1,47 @@
 ﻿using BepInEx;
 using HarmonyLib;
 using BepInEx.Logging;
+using System;
 
 namespace wishForHammerTest
 {
     internal static class ModInfo
     {
-        internal const string Guid = "unique.id.here";
-        internal const string Name = "modName";
-        internal const string Version = "modVersionHere";
+        internal const string Guid = "dingus.AskForHammer.nowaythisconflictsorelseiKILLsomeone";
+        internal const string Name = "Custom Hammer";
+        internal const string Version = "0.1";
     }
 
     [BepInPlugin(ModInfo.Guid, ModInfo.Name, ModInfo.Version)]
     internal class newMod : BaseUnityPlugin
     {
-        internal static new ManualLogSource newLog;
+        internal static ManualLogSource newLog;
         private void Awake()
         {
-            newLog.LogInfo($"PLUGIN LOADED: {ModInfo.Guid}");
-            //Harmony h = new Harmony(ModInfo.Guid);
-            //h.PatchAll();
+            newLog = Logger;
+            Logger.LogInfo("TESTING TESTING HAMMER MOD");
+            Logger.LogInfo($"PLUGIN LOADED: {ModInfo.Guid}");
+            Harmony h = new Harmony(ModInfo.Guid);
+            h.PatchAll();
 
-            newLog.LogInfo("TEST\n");
-            var mats = EClass.sources.materials.rows;
-            newLog.LogInfo(mats.GetType());
+            Logger.LogInfo("TEST\n");
+            try
+            {
+                var mats = EClass.sources.materials.rows;
+                Logger.LogInfo(mats.GetType()); // System.Collections.Generic.List`1[SourceMaterial+Row]
+                for (int i = 0; i < mats.Count; i++)
+                {
+                    Logger.LogInfo(mats[i]);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Logger.LogInfo(ex.Message);
+            }
         }
     }
 
-    /*
     [HarmonyPatch]
     internal class mod
     {
@@ -36,10 +50,17 @@ namespace wishForHammerTest
         internal static void newPatch()
         {
             newMod.newLog.LogInfo("STATUE USED");
-            Thing hammer = ThingGen.Create("mathammer", -1, -1);
-            hammer.ChangeMaterial("", false);
-            EClass.pc.Pick(hammer, true, true);
+
+            try
+            {
+                Thing hammer = ThingGen.Create("mathammer", -1, -1);
+                hammer.ChangeMaterial("rubinus", false);
+                EClass.pc.Pick(hammer, true, true);
+            }
+            catch (Exception ex)
+            {
+                newMod.newLog.LogInfo(ex.Message);
+            }
         }
     }
-    */
 }

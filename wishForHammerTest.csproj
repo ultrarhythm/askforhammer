@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>wishForHammerTest</RootNamespace>
-    <AssemblyName>Elin Script Mod Template</AssemblyName>
+    <AssemblyName>elinHammerTest</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
