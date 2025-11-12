@@ -2,6 +2,7 @@
 using HarmonyLib;
 using BepInEx.Logging;
 using System;
+using System.Linq;
 
 namespace wishForHammerTest
 {
@@ -31,7 +32,17 @@ namespace wishForHammerTest
                 Logger.LogInfo(mats.GetType()); // System.Collections.Generic.List`1[SourceMaterial+Row]
                 for (int i = 0; i < mats.Count; i++)
                 {
-                    Logger.LogInfo(mats[i]);
+                    try
+                    {
+                        for (int e = 0; e < mats[i].Count; e++)
+                        {
+                            Logger.LogInfo(mats[i][e])
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.LogInfo(e.Message);
+                    }
                 }
 
             }
