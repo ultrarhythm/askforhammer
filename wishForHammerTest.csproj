@@ -7,8 +7,8 @@
     <ProjectGuid>{CD8DBCC9-2D7B-4E12-BF97-4E01214641E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>wishForHammerTest</RootNamespace>
-    <AssemblyName>elinHammerTest</AssemblyName>
+    <RootNamespace>AskForHammer</RootNamespace>
+    <AssemblyName>AskForHammer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -47,8 +47,16 @@
     <Reference Include="Elin">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Elin\Elin_Data\Managed\Elin.dll</HintPath>
     </Reference>
+    <Reference Include="Plugins, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Elin\Elin_Data\Managed\Plugins.dll</HintPath>
+    </Reference>
     <Reference Include="Plugins.BaseCore">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Elin\Elin_Data\Managed\Plugins.BaseCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugins.UI, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Elin\Elin_Data\Managed\Plugins.UI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -66,7 +74,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="drops.cs" />
+    <Compile Include="hammermemrememr.cs" />
+    <Compile Include="Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
