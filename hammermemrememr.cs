@@ -13,7 +13,7 @@ namespace AskForHammer
             __instance.Religion.Talk("shrine", null, null);
             if (religion == "earth" || religion == "element")
             {
-                Dialog.InputName("dialogWish", "q", delegate(bool cancel, string text)
+                Dialog.InputName("dialogWish", "", delegate(bool cancel, string text)
                 // took an embarassingly long time to figure out this was the method
                 // to open the text box
                 {
@@ -35,9 +35,9 @@ namespace AskForHammer
                     Msg.Say("wishFail");
 
                 }, Dialog.InputType.Default);
-                return false;
+                return false; //skip the rest of original function
             }
-            return true;
+            return true; // continue original function
         }
     }
 }

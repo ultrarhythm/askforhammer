@@ -18,7 +18,6 @@ namespace AskForHammer
         private void Awake()
         {
             newLog = Logger;
-            Logger.LogInfo("TESTING TESTING HAMMER MOD");
             Logger.LogInfo($"PLUGIN LOADED: {ModInfo.Guid}");
             Harmony h = new Harmony(ModInfo.Guid);
             h.PatchAll();
